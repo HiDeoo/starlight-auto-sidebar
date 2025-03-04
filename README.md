@@ -1,1 +1,1 @@
-# starlight-auto-sidebar
+packages/starlight-auto-sidebar/README.md

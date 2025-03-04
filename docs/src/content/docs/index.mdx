@@ -1,0 +1,59 @@
+---
+title: // TODO(HiDeoo)
+description: // TODO(HiDeoo)
+head:
+  - tag: title
+    content: // TODO(HiDeoo)
+  - tag: style
+    content: |
+      .hero-html {
+        --size: 12rem;
+        font-size: var(--size);
+        justify-content: center;
+        line-height: var(--size);
+      }
+template: splash
+editUrl: false
+lastUpdated: false
+hero:
+  tagline: // TODO(HiDeoo)
+  image:
+    # // TODO(HiDeoo)
+    html: '📽️'
+  # // TODO(HiDeoo)
+  actions:
+    - text: Getting Started
+      link: /getting-started/
+      icon: rocket
+    - text: Demo Guides
+      link: /demo/video-guides/
+      variant: minimal
+      icon: right-arrow
+    - text: Demo Courses
+      link: /demo/video-courses/
+      variant: minimal
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components'
+
+Hello
+
+{/* // TODO(HiDeoo) */}
+
+## Next steps
+
+<CardGrid stagger>
+  <Card title="Install the plugin" icon="puzzle">
+    Check the [getting started guide](/getting-started/) for installation instructions.
+  </Card>
+  <Card title="Configure the plugin" icon="setting">
+    Edit your config in `astro.config.mjs`.
+  </Card>
+  <Card title="Publish video content" icon="seti:video">
+    Add video guides and courses to your documentation.
+  </Card>
+  <Card title="Read the docs" icon="open-book">
+    Learn more in the [Starlight Videos Docs](/getting-started/).
+  </Card>
+</CardGrid>
