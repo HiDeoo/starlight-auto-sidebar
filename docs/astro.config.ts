@@ -12,6 +12,33 @@ export default defineConfig({
       plugins: [starlightAutoSidebar()],
       sidebar: [
         // TODO(HiDeoo)
+        'guides/example',
+        {
+          label: 'Guides',
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: 'Example Guide', slug: 'guides/example' },
+            'guides/example',
+          ],
+        },
+        { label: 'Meteor Store', link: '/shop/' },
+        {
+          label: 'Reference',
+          autogenerate: { directory: 'reference' },
+        },
+        {
+          label: 'Guides',
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: 'Example Guide', slug: 'guides/example' },
+            {
+              label: 'Reference 2',
+              autogenerate: { directory: 'reference' },
+            },
+            'guides/example',
+          ],
+        },
+        // TODO(HiDeoo)
         // {
         //   label: 'Start Here',
         //   items: ['getting-started'],

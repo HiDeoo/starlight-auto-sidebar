@@ -4,8 +4,8 @@ export default function starlightAutoSidebar(): StarlightPlugin {
   return {
     name: 'starlight-auto-sidebar',
     hooks: {
-      setup: ({ logger }) => {
-        logger.info('starlight-auto-sidebar plugin loaded')
+      setup: ({ addRouteMiddleware }) => {
+        addRouteMiddleware({ entrypoint: 'starlight-auto-sidebar/middleware', order: 'post' })
       },
     },
   }
