@@ -14,6 +14,14 @@
     "test": "echo \"Error: no test implemented.\" && exit 1",
     "lint": "eslint . --cache --max-warnings=0"
   },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "tinyglobby": "^0.2.12"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^18.19.79"
+  },
   "peerDependencies": {
     "@astrojs/starlight": ">=0.32.0"
   },

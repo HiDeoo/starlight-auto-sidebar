@@ -28,7 +28,7 @@ importers:
         version: 2.0.1
       astro:
         specifier: ^5.4.1
-        version: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+        version: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
       eslint:
         specifier: ^9.21.0
         version: 9.21.0
@@ -46,13 +46,13 @@ importers:
     dependencies:
       '@astrojs/starlight':
         specifier: ^0.32.2
-        version: 0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+        version: 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
       '@hideoo/starlight-plugins-docs-components':
         specifier: ^0.4.0
-        version: 0.4.0(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+        version: 0.4.0(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
       astro:
         specifier: ^5.4.1
-        version: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+        version: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -64,7 +64,20 @@ importers:
     dependencies:
       '@astrojs/starlight':
         specifier: '>=0.32.0'
-        version: 0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+        version: 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
+      tinyglobby:
+        specifier: ^0.2.12
+        version: 0.2.12
+    devDependencies:
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
+      '@types/node':
+        specifier: ^18.19.79
+        version: 18.19.79
 
 packages:
 
@@ -827,6 +840,9 @@ packages:
 
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+
+  '@types/node@18.19.79':
+    resolution: {integrity: sha512-90K8Oayimbctc5zTPHPfZloc/lGVs7f3phUAAMcTgEPtg8kKquGZDERC8K4vkBYkQQh48msiYUslYtxTWvqcAg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3244,6 +3260,9 @@ packages:
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
 
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
@@ -3635,18 +3654,18 @@ packages:
 
 snapshots:
 
-  '@astro-community/astro-embed-twitter@0.5.8(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
+  '@astro-community/astro-embed-twitter@0.5.8(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
       '@astro-community/astro-embed-utils': 0.1.3
-      astro: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      astro: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
 
   '@astro-community/astro-embed-utils@0.1.3':
     dependencies:
       linkedom: 0.14.26
 
-  '@astro-community/astro-embed-youtube@0.5.6(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
+  '@astro-community/astro-embed-youtube@0.5.6(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
-      astro: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      astro: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
       lite-youtube-embed: 0.3.3
 
   '@astrojs/check@0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.2)':
@@ -3716,12 +3735,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.1.0(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
+  '@astrojs/mdx@4.1.0(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.2.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      astro: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -3745,16 +3764,16 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.2
 
-  '@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
+  '@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
-      '@astrojs/mdx': 4.1.0(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astrojs/mdx': 4.1.0(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
       '@astrojs/sitemap': 3.2.1
       '@pagefind/default-ui': 1.3.0
       '@types/hast': 3.0.4
       '@types/js-yaml': 4.0.9
       '@types/mdast': 4.0.4
-      astro: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
-      astro-expressive-code: 0.40.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      astro: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      astro-expressive-code: 0.40.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.3
       hast-util-select: 6.0.4
@@ -4176,11 +4195,11 @@ snapshots:
 
   '@hideoo/prettier-config@2.0.0': {}
 
-  '@hideoo/starlight-plugins-docs-components@0.4.0(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
+  '@hideoo/starlight-plugins-docs-components@0.4.0(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))':
     dependencies:
-      '@astrojs/starlight': 0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
-      starlight-package-managers: 0.8.1(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))
-      starlight-showcases: 0.3.0(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astrojs/starlight': 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      starlight-package-managers: 0.8.1(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))
+      starlight-showcases: 0.3.0(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
     transitivePeerDependencies:
       - astro
 
@@ -4497,11 +4516,15 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
+  '@types/node@18.19.79':
+    dependencies:
+      undici-types: 5.26.5
+
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.19.79
 
   '@types/unist@2.0.11': {}
 
@@ -4811,12 +4834,12 @@ snapshots:
       - supports-color
       - typescript
 
-  astro-expressive-code@0.40.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)):
+  astro-expressive-code@0.40.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)):
     dependencies:
-      astro: 5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      astro: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
       rehype-expressive-code: 0.40.2
 
-  astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0):
+  astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0):
     dependencies:
       '@astrojs/compiler': 2.10.4
       '@astrojs/internal-helpers': 0.6.0
@@ -4868,8 +4891,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
-      vite: 6.2.0(yaml@2.7.0)
-      vitefu: 1.0.6(vite@6.2.0(yaml@2.7.0))
+      vite: 6.2.0(@types/node@18.19.79)(yaml@2.7.0)
+      vitefu: 1.0.6(vite@6.2.0(@types/node@18.19.79)(yaml@2.7.0))
       which-pm: 3.0.1
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -7600,15 +7623,15 @@ snapshots:
 
   stable-hash@0.0.4: {}
 
-  starlight-package-managers@0.8.1(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))):
+  starlight-package-managers@0.8.1(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))):
     dependencies:
-      '@astrojs/starlight': 0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astrojs/starlight': 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
 
-  starlight-showcases@0.3.0(@astrojs/starlight@0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)):
+  starlight-showcases@0.3.0(@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)))(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)):
     dependencies:
-      '@astro-community/astro-embed-twitter': 0.5.8(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
-      '@astro-community/astro-embed-youtube': 0.5.6(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
-      '@astrojs/starlight': 0.32.2(astro@5.4.1(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astro-community/astro-embed-twitter': 0.5.8(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astro-community/astro-embed-youtube': 0.5.6(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      '@astrojs/starlight': 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
     transitivePeerDependencies:
       - astro
 
@@ -7836,6 +7859,8 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
+  undici-types@5.26.5: {}
+
   unified@11.0.5:
     dependencies:
       '@types/unist': 3.0.3
@@ -7937,18 +7962,19 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.2.0(yaml@2.7.0):
+  vite@6.2.0(@types/node@18.19.79)(yaml@2.7.0):
     dependencies:
       esbuild: 0.25.0
       postcss: 8.5.3
       rollup: 4.34.9
     optionalDependencies:
+      '@types/node': 18.19.79
       fsevents: 2.3.3
       yaml: 2.7.0
 
-  vitefu@1.0.6(vite@6.2.0(yaml@2.7.0)):
+  vitefu@1.0.6(vite@6.2.0(@types/node@18.19.79)(yaml@2.7.0)):
     optionalDependencies:
-      vite: 6.2.0(yaml@2.7.0)
+      vite: 6.2.0(@types/node@18.19.79)(yaml@2.7.0)
 
   volar-service-css@0.0.62(@volar/language-service@2.4.11):
     dependencies:
