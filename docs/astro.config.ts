@@ -36,6 +36,10 @@ export default defineConfig({
               autogenerate: { directory: 'reference' },
             },
             'guides/example',
+            {
+              label: 'Reference Test',
+              autogenerate: { directory: 'reference/test' },
+            },
           ],
         },
         // TODO(HiDeoo)

@@ -7,7 +7,6 @@ import { glob } from 'tinyglobby'
 
 import { stripLeadingSlash, stripTrailingSlash } from './path'
 
-// TODO(HiDeoo) rename
 const definitionFile = {
   glob: '_config.y?(a)ml',
   regex: /_config\.ya?ml$/,
@@ -17,13 +16,8 @@ const definitionSchema = z.object({
   label: z.string().optional(),
 })
 
-// TODO(HiDeoo) how would this work with HMR?
-const definitions = new Map<string, DefinitionMap>()
-
 export async function getDefinitionsForDirectory(dir: URL): Promise<DefinitionMap> {
-  let dirDefinitions = definitions.get(dir.pathname)
-  if (dirDefinitions) return dirDefinitions
-  dirDefinitions = {}
+  const dirDefinitions: DefinitionMap = {}
 
   const files = await glob([`**/${definitionFile.glob}`], { absolute: true, cwd: dir.pathname })
 
@@ -35,8 +29,6 @@ export async function getDefinitionsForDirectory(dir: URL): Promise<DefinitionMa
 
     dirDefinitions[definitionKey] = definition
   }
-
-  definitions.set(dir.pathname, dirDefinitions)
 
   return dirDefinitions
 }
@@ -70,3 +62,4 @@ ${Object.entries(errors.fieldErrors)
 
 type Definition = z.output<typeof definitionSchema>
 type DefinitionMap = Record<string, Definition>
+export type Definitions = Record<string, DefinitionMap>

@@ -1,14 +1,18 @@
-import type { HookParameters, StarlightUserConfig } from '@astrojs/starlight/types'
-import type { AstroConfig, ViteUserConfig } from 'astro'
+import type { ViteUserConfig } from 'astro'
+
+import type { Definitions } from './definitions'
+import type { SidebarItemConfig } from './sidebar'
 
 export function vitePluginStarlightAutoSidebar(
-  starlightConfig: HookParameters<'config:setup'>['config'],
-  astroConfig: AstroConfig,
+  sidebarConfig: StarlightAutoSidebarContext['sidebar'],
+  definitions: Definitions,
+  contentDir: URL,
 ): VitePlugin {
   const modules = {
     'virtual:starlight-auto-sidebar/context': `export default ${JSON.stringify({
-      sidebar: starlightConfig.sidebar,
-      contentDir: new URL(`content/docs/`, astroConfig.srcDir).toString(),
+      contentDir: contentDir.toString(),
+      definitions,
+      sidebar: sidebarConfig,
     } satisfies StarlightAutoSidebarContext)}`,
   }
 
@@ -34,7 +38,8 @@ function resolveVirtualModuleId<TModuleId extends string>(id: TModuleId): `\0${T
 
 export interface StarlightAutoSidebarContext {
   contentDir: string
-  sidebar: StarlightUserConfig['sidebar']
+  definitions: Definitions
+  sidebar: SidebarItemConfig[]
 }
 
 type VitePlugin = NonNullable<ViteUserConfig['plugins']>[number]
