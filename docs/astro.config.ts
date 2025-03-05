@@ -5,7 +5,7 @@ import starlightAutoSidebar from 'starlight-auto-sidebar'
 export default defineConfig({
   integrations: [
     starlight({
-      description: '// TODO(HiDeoo) ',
+      description: '// TODO(HiDeoo)',
       editLink: {
         baseUrl: 'https://github.com/HiDeoo/starlight-auto-sidebar/edit/main/docs/',
       },
