@@ -10,6 +10,7 @@ export default defineConfig({
         baseUrl: 'https://github.com/HiDeoo/starlight-auto-sidebar/edit/main/docs/',
       },
       plugins: [starlightAutoSidebar()],
+      routeMiddleware: ['./src/libs/route.ts'],
       sidebar: [
         // TODO(HiDeoo)
         'guides/example',
@@ -23,25 +24,33 @@ export default defineConfig({
         },
         { label: 'Meteor Store', link: '/shop/' },
         {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
-        },
-        {
-          label: 'Guides',
+          label: 'Tests',
+          // TODO(HiDeoo)
+          // collapsed: process.env['NODE_ENV'] !== 'test',
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
             {
-              label: 'Reference 2',
-              autogenerate: { directory: 'reference' },
-            },
-            'guides/example',
-            {
-              label: 'Reference Test',
-              autogenerate: { directory: 'reference/test' },
+              label: 'Basics',
+              autogenerate: { directory: 'tests/basics' },
             },
           ],
         },
+        // TODO(HiDeoo)
+        // {
+        //   label: 'Guides',
+        //   items: [
+        //     // Each item here is one entry in the navigation menu.
+        //     { label: 'Example Guide', slug: 'guides/example' },
+        //     {
+        //       label: 'Reference 2',
+        //       autogenerate: { directory: 'reference' },
+        //     },
+        //     'guides/example',
+        //     {
+        //       label: 'Reference Test',
+        //       autogenerate: { directory: 'reference/test' },
+        //     },
+        //   ],
+        // },
         // TODO(HiDeoo)
         // {
         //   label: 'Start Here',

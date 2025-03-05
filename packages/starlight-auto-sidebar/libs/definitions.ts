@@ -14,9 +14,11 @@ const definitionFile = {
   regex: /_config\.ya?ml$/,
 }
 
-const definitionSchema = z.object({
-  label: z.string().optional(),
-})
+const definitionSchema = z
+  .object({
+    label: z.string().optional(),
+  })
+  .strict()
 
 export async function getDefinitionsForDirectory(dir: URL): Promise<DefinitionMap> {
   const dirDefinitions: DefinitionMap = {}
@@ -72,6 +74,7 @@ function validateDefinition(pathname: string, userDefinition: unknown): Definiti
   if (!definition.success) {
     const errors = definition.error.flatten()
 
+    // TODO(HiDeoo) test???
     throw new AstroError(
       `Invalid starlight-auto-sidebar definition found in \`${pathname}\`:
 ${errors.formErrors.map((formError) => ` - ${formError}`).join('\n')}
