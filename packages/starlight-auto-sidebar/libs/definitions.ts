@@ -19,7 +19,7 @@ const definitionSchema = z
     // TODO(HiDeoo) comment
     label: z.string().optional(),
     // TODO(HiDeoo) comment
-    sort: z.enum(['slug', 'reverse-slug', 'label', 'reverse-label']).default('slug'),
+    sort: z.enum(['slug', 'reverse-slug']).default('slug'),
   })
   .strict()
 

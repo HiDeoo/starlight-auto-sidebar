@@ -32,7 +32,7 @@ export default function starlightAutoSidebar(): StarlightPlugin {
 
               updateConfig({
                 vite: {
-                  plugins: [vitePluginStarlightAutoSidebar(sidebar, definitions, contentDir)],
+                  plugins: [vitePluginStarlightAutoSidebar(starlightConfig, definitions, contentDir)],
                 },
               })
             },
