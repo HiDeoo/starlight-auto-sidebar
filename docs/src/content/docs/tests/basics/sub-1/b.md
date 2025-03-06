@@ -1,3 +1,3 @@
 ---
-title: basics/sub-1/b
+title: sub-1/b
 ---

@@ -1,3 +1,3 @@
 ---
-title: sort-reverse-slug/sub-2/a
+title: sub-2/a
 ---

@@ -32,6 +32,7 @@ export default defineConfig({
           // collapsed: process.env['NODE_ENV'] !== 'test',
           items: [
             { label: 'basics', autogenerate: { directory: 'tests/basics' } },
+            { label: 'sort-slug', autogenerate: { directory: 'tests/sort-slug' } },
             { label: 'sort-reverse-slug', autogenerate: { directory: 'tests/sort-reverse-slug' } },
           ],
         },

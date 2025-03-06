@@ -8,7 +8,7 @@ export const onRequest = defineRouteMiddleware((context) => {
     starlightRoute.entry.data.pagefind = false
   }
 
-  if (process.env['NODE_ENV'] !== 'production') {
+  if (process.env['NODE_ENV'] === 'production') {
     // TODO(HiDeoo) adjust when docs are ready
     // TODO(HiDeoo) comment the 3
     starlightRoute.sidebar = starlightRoute.sidebar.slice(0, 3)
