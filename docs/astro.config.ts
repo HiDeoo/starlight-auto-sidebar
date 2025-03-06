@@ -31,10 +31,8 @@ export default defineConfig({
           // TODO(HiDeoo)
           // collapsed: process.env['NODE_ENV'] !== 'test',
           items: [
-            {
-              label: 'Basics',
-              autogenerate: { directory: 'tests/basics' },
-            },
+            { label: 'basics', autogenerate: { directory: 'tests/basics' } },
+            { label: 'sort-reverse-slug', autogenerate: { directory: 'tests/sort-reverse-slug' } },
           ],
         },
         // TODO(HiDeoo)

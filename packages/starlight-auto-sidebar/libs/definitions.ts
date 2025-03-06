@@ -16,7 +16,10 @@ const definitionFile = {
 
 const definitionSchema = z
   .object({
+    // TODO(HiDeoo) comment
     label: z.string().optional(),
+    // TODO(HiDeoo) comment
+    sort: z.enum(['slug', 'reverse-slug', 'label', 'reverse-label']).default('slug'),
   })
   .strict()
 
@@ -89,7 +92,7 @@ ${Object.entries(errors.fieldErrors)
   return definition.data
 }
 
-type Definition = z.output<typeof definitionSchema>
+export type Definition = z.output<typeof definitionSchema>
 type DefinitionMap = Record<string, Definition>
 export type Definitions = Record<string, DefinitionMap>
 

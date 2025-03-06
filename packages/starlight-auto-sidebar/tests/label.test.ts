@@ -3,7 +3,7 @@ import { expect, test } from './test'
 test('updates labels', async ({ docPage }) => {
   await docPage.go()
 
-  const items = await docPage.getSidebarGroupItems('Basics')
+  const items = await docPage.getSidebarGroupItems('basics')
 
   expect(items).toMatchSidebar([
     { label: 'basics/a' },
