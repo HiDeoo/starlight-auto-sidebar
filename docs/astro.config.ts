@@ -5,6 +5,9 @@ import starlightAutoSidebar from 'starlight-auto-sidebar'
 export default defineConfig({
   integrations: [
     starlight({
+      components: {
+        MarkdownContent: './src/components/MarkdownContent.astro',
+      },
       description: '// TODO(HiDeoo)',
       editLink: {
         baseUrl: 'https://github.com/HiDeoo/starlight-auto-sidebar/edit/main/docs/',
@@ -80,4 +83,5 @@ export default defineConfig({
     }),
   ],
   site: 'https://starlight-auto-sidebar.netlify.app/',
+  trailingSlash: 'always',
 })

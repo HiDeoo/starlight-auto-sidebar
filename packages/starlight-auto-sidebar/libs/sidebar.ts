@@ -4,8 +4,6 @@ import type { HookParameters, StarlightUserConfig } from '@astrojs/starlight/typ
 import { type Definitions, getDefinitionsForDirectory } from './definitions'
 import type { StarlightAutoSidebarContext } from './vite'
 
-// TODO(HiDeoo) some caching? what would be the things that could change between pages to invalidate the cache?
-
 export async function getDefinitionsFromSidebarConfig(
   contentDir: URL,
   config: NonNullable<StarlightUserConfig['sidebar']>,

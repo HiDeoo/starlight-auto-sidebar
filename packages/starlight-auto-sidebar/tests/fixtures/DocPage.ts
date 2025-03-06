@@ -1,7 +1,5 @@
 import type { Locator, Page } from '@playwright/test'
 
-// TODO(HiDeoo) Show test disclaimer in test pages
-
 export class DocPage {
   constructor(public readonly page: Page) {}
 
