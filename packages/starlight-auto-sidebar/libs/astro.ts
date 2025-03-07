@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { stripLeadingSlash } from './path'
+
 // https://github.com/withastro/astro/blob/afc59bbfc4d08076066f32c97a916fd357a857cb/packages/astro/src/core/config/config.ts#L29-L36
 const configFiles = [
   'astro.config.mjs',
@@ -10,6 +12,8 @@ const configFiles = [
   'astro.config.cjs',
   'astro.config.cts',
 ]
+
+const base = stripLeadingSlash(import.meta.env.BASE_URL)
 
 export function getConfigPath(rootDir: URL) {
   for (const configFile of configFiles) {
@@ -22,4 +26,8 @@ export function getConfigPath(rootDir: URL) {
 export function restartDevServer(configPath: string) {
   const now = new Date()
   fs.utimesSync(configPath, now, now)
+}
+
+export function stripBase(pathname: string) {
+  return pathname.replace(base, '')
 }

@@ -1,6 +1,6 @@
 import { expect, test } from './test'
 
-test('sorts by `slug`', async ({ docPage }) => {
+test('orders and sorts by `slug`', async ({ docPage }) => {
   await docPage.go()
 
   const items = await docPage.getSidebarGroupItems('sort-slug')
@@ -43,7 +43,7 @@ test('sorts by `slug`', async ({ docPage }) => {
   ])
 })
 
-test('sorts by `reverse-slug`', async ({ docPage }) => {
+test('orders and sorts by `reverse-slug`', async ({ docPage }) => {
   await docPage.go()
 
   const items = await docPage.getSidebarGroupItems('sort-reverse-slug')

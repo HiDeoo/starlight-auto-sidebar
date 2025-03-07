@@ -1,9 +1,10 @@
-import { stripLeadingSlash, stripTrailingSlash } from './path'
+import { getEntry } from 'astro:content'
+
+import { stripLeadingAndTrailingSlash } from './path'
 import type { StarlightAutoSidebarContext } from './vite'
 
 export async function getEntryOrder(id: string) {
-  const { getEntry } = await import('astro:content')
-  const entry = await getEntry('docs', stripLeadingSlash(stripTrailingSlash(id)))
+  const entry = await getEntry('docs', stripLeadingAndTrailingSlash(id))
 
   return entry?.data.sidebar.order ?? Number.MAX_VALUE
 }

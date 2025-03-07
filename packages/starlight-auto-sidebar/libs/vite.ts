@@ -1,20 +1,20 @@
 import type { HookParameters } from '@astrojs/starlight/types'
 import type { ViteUserConfig } from 'astro'
 
-import type { Definitions } from './definitions'
-import type { SidebarItemConfig } from './sidebar'
+import type { ProjectMetadata } from './metadata'
+import type { SidebarItemConfig } from './sidebarConfig'
 
 export function vitePluginStarlightAutoSidebar(
   starlightConfig: StarlightConfig,
-  definitions: Definitions,
   contentDir: URL,
+  metadata: ProjectMetadata,
 ): VitePlugin {
   const modules = {
     'virtual:starlight-auto-sidebar/context': `export default ${JSON.stringify({
       contentDir: contentDir.toString(),
       defaultLocale: starlightConfig.defaultLocale,
-      definitions,
       locales: starlightConfig.locales,
+      metadata,
       sidebar: starlightConfig.sidebar ?? [],
     } satisfies StarlightAutoSidebarContext)}`,
   }
@@ -44,8 +44,8 @@ type StarlightConfig = HookParameters<'config:setup'>['config']
 export interface StarlightAutoSidebarContext {
   contentDir: string
   defaultLocale: StarlightConfig['defaultLocale']
-  definitions: Definitions
   locales: StarlightConfig['locales']
+  metadata: ProjectMetadata
   sidebar: SidebarItemConfig[]
 }
 

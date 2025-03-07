@@ -1,7 +1,6 @@
 import type { StarlightPlugin } from '@astrojs/starlight/types'
 
-import { setupDefinitionsWatcher, type DefinitionsWatcher } from './libs/definitions'
-import { getDefinitionsFromSidebarConfig } from './libs/sidebar'
+import { getProjectMetadata, setupMetadataWatcher, type MetadataWatcher } from './libs/metadata'
 import { vitePluginStarlightAutoSidebar } from './libs/vite'
 
 export default function starlightAutoSidebar(): StarlightPlugin {
@@ -17,27 +16,27 @@ export default function starlightAutoSidebar(): StarlightPlugin {
 
         addRouteMiddleware({ entrypoint: 'starlight-auto-sidebar/middleware', order: 'post' })
 
-        let definitionsWatcher: DefinitionsWatcher | undefined
+        let metadataWatcher: MetadataWatcher | undefined
 
         addIntegration({
           name: 'starlight-auto-sidebar-integration',
           hooks: {
             'astro:config:setup': async ({ updateConfig }) => {
               const contentDir = new URL(`content/docs/`, astroConfig.srcDir)
-              const definitions = await getDefinitionsFromSidebarConfig(contentDir, sidebar)
+              const metadata = await getProjectMetadata(contentDir, sidebar)
 
               if (command === 'dev') {
-                definitionsWatcher = await setupDefinitionsWatcher(astroConfig.root, contentDir, definitions)
+                metadataWatcher = await setupMetadataWatcher(astroConfig.root, contentDir, metadata)
               }
 
               updateConfig({
                 vite: {
-                  plugins: [vitePluginStarlightAutoSidebar(starlightConfig, definitions, contentDir)],
+                  plugins: [vitePluginStarlightAutoSidebar(starlightConfig, contentDir, metadata)],
                 },
               })
             },
             'astro:server:done': async () => {
-              await definitionsWatcher?.unsubscribe()
+              await metadataWatcher?.unsubscribe()
             },
           },
         })
