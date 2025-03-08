@@ -136,8 +136,7 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
       {
         url: '/c/',
         expected: {
-          // TODO(HiDeoo) test prev (which is in another fixture/group)
-          // prev: { href: '/sub-3/b/', label: 'sub-3/b' },
+          prev: { href: '/updates/sub-3/b/', label: 'sub-3/b' },
           next: { href: '/sort-slug/sub-3/a/', label: 'sub-3/a' },
         },
       },
@@ -222,8 +221,7 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         url: '/sub-2/b/',
         expected: {
           prev: { href: '/sort-slug/sub-2/a/', label: 'sub-2/a' },
-          // TODO(HiDeoo) test prev (which is in another fixture/group)
-          // next: { href: '/sub-3/b/', label: 'sub-3/b' },
+          next: { href: '/sort-reverse-slug/c/', label: 'c' },
         },
       },
     ])
