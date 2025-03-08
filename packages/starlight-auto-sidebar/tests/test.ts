@@ -2,6 +2,8 @@ import { expect as baseExpect, test as baseTest } from '@playwright/test'
 
 import { DocPage, type TestSidebarItem } from './fixtures/DocPage'
 
+export type { TestPrevNextLink } from './fixtures/DocPage'
+
 export const expect = baseExpect.extend({
   toMatchSidebar(items: TestSidebarItem[], expected: TestSidebarItem[]) {
     let pass = false

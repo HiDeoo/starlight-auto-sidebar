@@ -1,5 +1,7 @@
 import type { Locator, Page } from '@playwright/test'
 
+import { stripLeadingSlash } from '../../libs/path'
+
 export class DocPage {
   constructor(public readonly page: Page) {}
 
@@ -7,8 +9,28 @@ export class DocPage {
     return this.page.goto('/')
   }
 
+  goto(url: string) {
+    return this.page.goto(url)
+  }
+
+  gotoFixture(fixture: string, url: string) {
+    return this.page.goto(`/tests/${fixture}/${stripLeadingSlash(url)}`)
+  }
+
   getSidebarGroupItems(label: string) {
     return this.#getSidebarGroupItemFromList(this.#getSidebarGroupList(label))
+  }
+
+  async getPrevNextLink(type: 'prev' | 'next'): Promise<TestPrevNextLink> {
+    const link = this.page.locator(`a[rel="${type}"]`)
+    const href = await link.getAttribute('href')
+    const label = await link.locator('.link-title').textContent()
+
+    if (!href || !label) {
+      throw new Error(`Failed to find ${type} link`)
+    }
+
+    return { href, label }
   }
 
   get #sidebar() {
@@ -54,4 +76,9 @@ interface TestSidebarItemGroup {
 
 interface TestSidebarItemLink {
   label: string | undefined
+}
+
+export interface TestPrevNextLink {
+  href: string
+  label: string
 }
