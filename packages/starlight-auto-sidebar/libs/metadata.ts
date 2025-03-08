@@ -44,8 +44,7 @@ async function collectDirectoryMetadata(metadata: ProjectMetadata, dir: string) 
 }
 
 async function getMetadataEntries(): Promise<MetadataEntry[]> {
-  if (metadataEntries) return metadataEntries
-  metadataEntries = await getCollection('autoSidebar')
+  metadataEntries ??= await getCollection('autoSidebar')
   return metadataEntries
 }
 

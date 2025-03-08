@@ -108,8 +108,8 @@ test.describe('sorts auto-generated sidebar groups', () => {
           {
             label: 'sub-1',
             items: [
-              // Manual`order` of 1.
-              { label: 'sub-1/sub-1/c' },
+              // Manual`order` of 1 and sidebar label overridden in the file frontmatter.
+              { label: 'sub-1/sub-1/c (modified)' },
               // Manual`order` of 2.
               {
                 label: 'sub-1',
@@ -192,7 +192,8 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
       {
         url: '/sub-1/sub-1/a/',
         expected: {
-          prev: { href: '/sort-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b' },
+          // Prev link label overridden in the file frontmatter.
+          prev: { href: '/sort-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b (modified)' },
           next: { href: '/sort-slug/sub-1/sub-1/d/', label: 'sub-1/sub-1/d' },
         },
       },
@@ -214,7 +215,8 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         url: '/sub-2/a/',
         expected: {
           prev: { href: '/sort-slug/sub-1/a/', label: 'sub-1/a' },
-          next: { href: '/sort-slug/sub-2/b/', label: 'sub-2/b' },
+          // Next link label hidden in the file frontmatter.
+          next: null,
         },
       },
       {
@@ -284,7 +286,8 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         url: '/sub-1/b/',
         expected: {
           prev: { href: '/sort-reverse-slug/sub-1/a/', label: 'sub-1/a' },
-          next: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c' },
+          // Sidebar label overridden in the file frontmatter.
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c (modified)' },
         },
       },
       {
@@ -297,7 +300,8 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
       {
         url: '/sub-1/sub-1/sub-1/a/',
         expected: {
-          prev: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c' },
+          // Sidebar label overridden in the file frontmatter.
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c (modified)' },
           next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
         },
       },
@@ -318,7 +322,8 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
       {
         url: '/sub-1/sub-1/d/',
         expected: {
-          prev: { href: '/sort-reverse-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b' },
+          // Prev link label and href overridden in the file frontmatter.
+          prev: { href: '/unrelated-page/', label: 'Unrelated Page (modified)' },
           next: { href: '/sort-reverse-slug/sub-1/sub-1/a/', label: 'sub-1/sub-1/a' },
         },
       },
@@ -333,6 +338,7 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         url: '/a/',
         expected: {
           prev: { href: '/sort-reverse-slug/sub-1/sub-1/a/', label: 'sub-1/sub-1/a' },
+          // Last sidebar item.
           next: null,
         },
       },
