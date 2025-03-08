@@ -227,5 +227,115 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
     ])
   })
 
-  // TODO(HiDeoo) test reverse-slug
+  test('sets prev/next links when sorting by `reverse-slug`', async ({ getPage }) => {
+    const page = await getPage()
+
+    await page.expectPrevNextLinks('sort-reverse-slug', [
+      {
+        url: '/c/',
+        expected: {
+          prev: { href: '/sort-slug/sub-2/b/', label: 'sub-2/b' },
+          next: { href: '/sort-reverse-slug/sub-3/a/', label: 'sub-3/a' },
+        },
+      },
+      {
+        url: '/sub-3/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/c/', label: 'c' },
+          next: { href: '/sort-reverse-slug/sub-3/b/', label: 'sub-3/b' },
+        },
+      },
+      {
+        url: '/sub-3/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-3/a/', label: 'sub-3/a' },
+          next: { href: '/sort-reverse-slug/b/', label: 'b' },
+        },
+      },
+      {
+        url: '/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-3/b/', label: 'sub-3/b' },
+          next: { href: '/sort-reverse-slug/sub-2/a/', label: 'sub-2/a' },
+        },
+      },
+      {
+        url: '/sub-2/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/b/', label: 'b' },
+          next: { href: '/sort-reverse-slug/sub-2/b/', label: 'sub-2/b' },
+        },
+      },
+      {
+        url: '/sub-2/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-2/a/', label: 'sub-2/a' },
+          next: { href: '/sort-reverse-slug/sub-1/a/', label: 'sub-1/a' },
+        },
+      },
+      {
+        url: '/sub-1/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-2/b/', label: 'sub-2/b' },
+          next: { href: '/sort-reverse-slug/sub-1/b/', label: 'sub-1/b' },
+        },
+      },
+      {
+        url: '/sub-1/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/a/', label: 'sub-1/a' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/c/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/b/', label: 'sub-1/b' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/sub-1/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/sub-1/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/b/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/d/', label: 'sub-1/sub-1/d' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/d/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/a/', label: 'sub-1/sub-1/a' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/d/', label: 'sub-1/sub-1/d' },
+          next: { href: '/sort-reverse-slug/a/', label: 'a' },
+        },
+      },
+      {
+        url: '/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/a/', label: 'sub-1/sub-1/a' },
+          next: null,
+        },
+      },
+    ])
+  })
 })

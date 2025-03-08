@@ -79,14 +79,16 @@ class StarlightPage {
     for (const { expected, url } of assertions) {
       await this.goTo(`/${group}${url}`)
 
-      if (expected.prev) {
-        const prev = await this.#getPrevNextLink('prev')
-        expect(prev).toEqual(expected.prev)
-      }
-
-      if (expected.next) {
-        const next = await this.#getPrevNextLink('next')
-        expect(next).toEqual(expected.next)
+      for (const type of ['prev', 'next'] as const) {
+        const expectedPrevNextLink = expected[type]
+        if (expectedPrevNextLink !== undefined) {
+          if (expectedPrevNextLink === null) {
+            await expect(this.page.locator(`a[rel="${type}"]`)).not.toBeVisible()
+          } else {
+            const prevNextLink = await this.#getPrevNextLink(type)
+            expect(prevNextLink).toEqual(expectedPrevNextLink)
+          }
+        }
       }
     }
   }
@@ -175,7 +177,8 @@ interface TestPrevNextLink {
 type TestPrevNextAssertions = {
   url: string
   expected: {
-    prev?: TestPrevNextLink
-    next?: TestPrevNextLink
+    // Use `null` to assert that the link does not exist.
+    prev?: TestPrevNextLink | null
+    next?: TestPrevNextLink | null
   }
 }[]

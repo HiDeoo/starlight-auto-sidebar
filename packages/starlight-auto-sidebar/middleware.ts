@@ -12,6 +12,6 @@ export const onRequest = defineRouteMiddleware(async ({ locals }) => {
 
   starlightRoute.sidebar = sidebar
 
-  if (prev) starlightRoute.pagination.prev = prev
-  if (next) starlightRoute.pagination.next = next
+  if (prev !== undefined) starlightRoute.pagination.prev = prev ?? undefined
+  if (next !== undefined) starlightRoute.pagination.next = next ?? undefined
 })
