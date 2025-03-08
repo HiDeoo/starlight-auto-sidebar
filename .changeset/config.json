@@ -8,5 +8,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["starlight-auto-sidebar-docs"]
+  "ignore": ["starlight-auto-sidebar-docs", "@starlight-auto-sidebar-e2e/*"]
 }

@@ -5,15 +5,11 @@ import starlightAutoSidebar from 'starlight-auto-sidebar'
 export default defineConfig({
   integrations: [
     starlight({
-      components: {
-        MarkdownContent: './src/components/MarkdownContent.astro',
-      },
       description: '// TODO(HiDeoo)',
       editLink: {
         baseUrl: 'https://github.com/HiDeoo/starlight-auto-sidebar/edit/main/docs/',
       },
       plugins: [starlightAutoSidebar()],
-      routeMiddleware: ['./src/libs/route.ts'],
       sidebar: [
         // TODO(HiDeoo)
         'guides/example',
@@ -26,16 +22,6 @@ export default defineConfig({
           ],
         },
         { label: 'Meteor Store', link: '/shop/' },
-        {
-          label: 'Tests',
-          // TODO(HiDeoo)
-          // collapsed: process.env['NODE_ENV'] !== 'test',
-          items: [
-            { label: 'basics', autogenerate: { directory: 'tests/basics' } },
-            { label: 'sort-slug', autogenerate: { directory: 'tests/sort-slug' } },
-            { label: 'sort-reverse-slug', autogenerate: { directory: 'tests/sort-reverse-slug' } },
-          ],
-        },
         // TODO(HiDeoo)
         // {
         //   label: 'Guides',

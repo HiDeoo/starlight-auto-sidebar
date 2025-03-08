@@ -1,0 +1,9 @@
+{
+  "name": "@starlight-auto-sidebar-e2e/basics",
+  "private": true,
+  "dependencies": {
+    "@astrojs/starlight": "^0.32.2",
+    "astro": "^5.4.1",
+    "starlight-auto-sidebar": "workspace:*"
+  }
+}
