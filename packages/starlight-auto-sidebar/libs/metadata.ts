@@ -25,6 +25,8 @@ export const MetadataSchema = z
     // TODO(HiDeoo) comment
     collapsed: z.boolean().default(false),
     // TODO(HiDeoo) comment
+    hidden: z.boolean().default(false),
+    // TODO(HiDeoo) comment
     label: z.string().optional(),
     // TODO(HiDeoo) comment
     order: z.number().optional(),

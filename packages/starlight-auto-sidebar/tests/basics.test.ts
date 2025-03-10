@@ -38,6 +38,7 @@ test.describe('updates auto-generated sidebar groups', () => {
         label: 'sub-3 (modified)',
         items: [{ label: 'sub-3/a' }, { label: 'sub-3/b' }],
       },
+      // `sub-4` and `sub-5` are both `hidden`.
     ])
   })
 
