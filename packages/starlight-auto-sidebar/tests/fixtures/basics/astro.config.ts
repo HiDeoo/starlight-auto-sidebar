@@ -11,6 +11,12 @@ export default defineConfig({
         { label: 'updates', autogenerate: { directory: 'updates' } },
         { label: 'sort-slug', autogenerate: { directory: 'sort-slug' } },
         { label: 'sort-reverse-slug', autogenerate: { directory: 'sort-reverse-slug' } },
+        { label: 'collapsed', autogenerate: { directory: 'collapsed' }, collapsed: true },
+        {
+          label: 'collapsed-subgroups',
+          autogenerate: { directory: 'collapsed-subgroups', collapsed: true },
+          collapsed: false,
+        },
       ],
       pagefind: false,
       plugins: [starlightAutoSidebar()],

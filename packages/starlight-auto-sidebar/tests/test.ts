@@ -71,6 +71,23 @@ class StarlightPage {
     return `http://localhost:${this.server.port}${url}`
   }
 
+  async getSidebarGroupState(labelSegments: [string, ...string[]]) {
+    let details: Locator | undefined
+
+    for (const label of labelSegments) {
+      const root = details ?? this.#sidebar.getByRole('listitem')
+      details = root.locator(this.#getSidebarGroupSelector(label))
+    }
+
+    if (!details) {
+      throw new Error(`Failed to find sidebar group with label segments: ${labelSegments.join(' > ')}`)
+    }
+
+    const open = await details.getAttribute('open')
+
+    return open === null ? 'collapsed' : 'expanded'
+  }
+
   getSidebarGroupItems(label: string) {
     return this.#getSidebarGroupItemFromList(this.#getSidebarGroupList(label))
   }
@@ -110,11 +127,7 @@ class StarlightPage {
   }
 
   #getSidebarGroupList(label: string) {
-    return this.#sidebar
-      .getByRole('listitem')
-      .locator(`details:has(summary > div > span:text-is("${label}"))`)
-      .last()
-      .locator('> ul')
+    return this.#sidebar.getByRole('listitem').locator(this.#getSidebarGroupSelector(label)).last().locator('> ul')
   }
 
   async #getSidebarGroupItemFromList(groupList: Locator) {
@@ -136,6 +149,10 @@ class StarlightPage {
     }
 
     return items
+  }
+
+  #getSidebarGroupSelector(label: string) {
+    return `details:has(summary > div > span:text-is("${label}"))`
   }
 }
 

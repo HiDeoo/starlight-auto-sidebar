@@ -11,6 +11,8 @@ export const MetadataFileGlob = `${Metadatafilename}.y?(a)ml`
 export const MetadataSchema = z
   .object({
     // TODO(HiDeoo) comment
+    collapsed: z.boolean().default(false),
+    // TODO(HiDeoo) comment
     label: z.string().optional(),
     // TODO(HiDeoo) comment
     order: z.number().optional(),

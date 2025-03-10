@@ -33,6 +33,36 @@ test.describe('updates auto-generated sidebar groups', () => {
       },
     ])
   })
+
+  test('updates the collapsed state of a directory', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    expect(await page.getSidebarGroupState(['updates'])).toBe('expanded')
+    expect(await page.getSidebarGroupState(['updates', 'sub-3 (modified)'])).toBe('collapsed')
+  })
+
+  test('updates the collapsed state of a directory for collapsed an auto-generated group and its subgroups', async ({
+    getPage,
+  }) => {
+    const page = await getPage()
+    await page.go()
+
+    expect(await page.getSidebarGroupState(['collapsed'])).toBe('collapsed')
+    expect(await page.getSidebarGroupState(['collapsed', 'sub-1'])).toBe('collapsed')
+    expect(await page.getSidebarGroupState(['collapsed', 'sub-2'])).toBe('expanded')
+  })
+
+  test('updates the collapsed state of a directory for an auto-generated group and its collapsed subgroups', async ({
+    getPage,
+  }) => {
+    const page = await getPage()
+    await page.go()
+
+    expect(await page.getSidebarGroupState(['collapsed-subgroups'])).toBe('expanded')
+    expect(await page.getSidebarGroupState(['collapsed-subgroups', 'sub-1'])).toBe('collapsed')
+    expect(await page.getSidebarGroupState(['collapsed-subgroups', 'sub-2'])).toBe('expanded')
+  })
 })
 
 test.describe('sorts auto-generated sidebar groups', () => {
@@ -339,7 +369,7 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         expected: {
           prev: { href: '/sort-reverse-slug/sub-1/sub-1/a/', label: 'sub-1/sub-1/a' },
           // Last sidebar item.
-          next: null,
+          next: { href: '/collapsed/sub-1/a/', label: 'sub-1/a' },
         },
       },
     ])
