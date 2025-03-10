@@ -395,3 +395,135 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
     ])
   })
 })
+
+test.describe('applies depth limit to auto-generated sidebar groups', () => {
+  test('applies a depth of 1 to the root directory', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    const items = await page.getSidebarGroupItems('depth-root-1')
+
+    expect(items).toMatchSidebar([
+      { label: 'a' },
+      { label: 'b' },
+      {
+        label: 'sub-1',
+        items: [{ label: 'sub-1/a' }, { label: 'sub-1/b' }],
+      },
+      {
+        label: 'sub-2',
+        items: [{ label: 'sub-2/a' }, { label: 'sub-2/b' }],
+      },
+    ])
+  })
+
+  test('applies a depth greater than 1 to the root directory', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    const items = await page.getSidebarGroupItems('depth-root-3')
+
+    expect(items).toMatchSidebar([
+      { label: 'a' },
+      { label: 'b' },
+      {
+        label: 'sub-1',
+        items: [
+          { label: 'sub-1/a' },
+          { label: 'sub-1/b' },
+          {
+            label: 'sub-1',
+            items: [
+              { label: 'sub-1/sub-1/a' },
+              { label: 'sub-1/sub-1/b' },
+              {
+                label: 'sub-1',
+                items: [{ label: 'sub-1/sub-1/sub-1/a' }, { label: 'sub-1/sub-1/sub-1/b' }],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'sub-2',
+        items: [{ label: 'sub-2/a' }, { label: 'sub-2/b' }],
+      },
+    ])
+  })
+
+  test('applies depth limits to nested directories', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    const items = await page.getSidebarGroupItems('mixed-depth')
+
+    expect(items).toMatchSidebar([
+      { label: 'a' },
+      { label: 'b' },
+      // Depth limit of 2.
+      {
+        label: 'sub-1 (depth 2)',
+        items: [
+          { label: 'sub-1/a' },
+          { label: 'sub-1/b' },
+          {
+            label: 'sub-1',
+            items: [
+              { label: 'sub-1/sub-1/a' },
+              { label: 'sub-1/sub-1/b' },
+              {
+                label: 'sub-1',
+                items: [{ label: 'sub-1/sub-1/sub-1/a' }, { label: 'sub-1/sub-1/sub-1/b' }],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'sub-2',
+        items: [
+          { label: 'sub-2/a' },
+          { label: 'sub-2/b' },
+          // Depth limit of 1.
+          {
+            label: 'sub-1 (depth 1)',
+            items: [
+              { label: 'sub-2/sub-1/a' },
+              { label: 'sub-2/sub-1/b' },
+              {
+                label: 'sub-1',
+                items: [{ label: 'sub-2/sub-1/sub-1/a' }, { label: 'sub-2/sub-1/sub-1/b' }],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'sub-3',
+        items: [
+          { label: 'sub-3/a' },
+          { label: 'sub-3/b' },
+          {
+            label: 'sub-1',
+            items: [
+              { label: 'sub-3/sub-1/a' },
+              { label: 'sub-3/sub-1/b' },
+              // Depth limit of 1.
+              {
+                label: 'sub-1 (depth 1)',
+                items: [
+                  { label: 'sub-3/sub-1/sub-1/a' },
+                  { label: 'sub-3/sub-1/sub-1/b' },
+                  {
+                    label: 'sub-1',
+                    items: [{ label: 'sub-3/sub-1/sub-1/sub-1/a' }, { label: 'sub-3/sub-1/sub-1/sub-1/b' }],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ])
+  })
+})
