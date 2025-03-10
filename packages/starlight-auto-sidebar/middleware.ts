@@ -8,7 +8,12 @@ export const onRequest = defineRouteMiddleware(async ({ locals }) => {
   const { starlightRoute } = locals
 
   const metadata = await getProjectMetadata(context.sidebar)
-  const { sidebar, prev, next } = await updatePageSidebar(starlightRoute.sidebar, metadata, context)
+  const { sidebar, prev, next } = await updatePageSidebar(
+    starlightRoute.sidebar,
+    metadata,
+    starlightRoute.locale,
+    context,
+  )
 
   starlightRoute.sidebar = sidebar
 

@@ -7,6 +7,7 @@ export function vitePluginStarlightAutoSidebar(starlightConfig: StarlightConfig)
   const modules = {
     'virtual:starlight-auto-sidebar/context': `export default ${JSON.stringify({
       defaultLocale: starlightConfig.defaultLocale,
+      isMultilingual: Object.keys(starlightConfig.locales ?? {}).length > 1,
       locales: starlightConfig.locales,
       sidebar: starlightConfig.sidebar ?? [],
     } satisfies StarlightAutoSidebarContext)}`,
@@ -36,6 +37,7 @@ type StarlightConfig = HookParameters<'config:setup'>['config']
 
 export interface StarlightAutoSidebarContext {
   defaultLocale: StarlightConfig['defaultLocale']
+  isMultilingual: boolean
   locales: StarlightConfig['locales']
   sidebar: SidebarItemConfig[]
 }

@@ -8,4 +8,5 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], headless: true },
     },
   ],
+  workers: 1,
 })

@@ -75,9 +75,9 @@ class StarlightPage {
     return this.#getSidebarGroupItemFromList(this.#getSidebarGroupList(label))
   }
 
-  async expectPrevNextLinks(group: string, assertions: TestPrevNextAssertions) {
+  async expectPrevNextLinks(group: string, assertions: TestPrevNextAssertions, locale?: string) {
     for (const { expected, url } of assertions) {
-      await this.goTo(`/${group}${url}`)
+      await this.goTo(`${locale ? `/${locale}` : ''}/${group}${url}`)
 
       for (const type of ['prev', 'next'] as const) {
         const expectedPrevNextLink = expected[type]
@@ -106,7 +106,7 @@ class StarlightPage {
   }
 
   get #sidebar() {
-    return this.page.getByRole('navigation', { name: 'Main' }).locator('div.sidebar-content')
+    return this.page.locator('nav div.sidebar-content')
   }
 
   #getSidebarGroupList(label: string) {

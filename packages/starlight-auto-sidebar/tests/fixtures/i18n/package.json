@@ -1,0 +1,16 @@
+{
+  "name": "@starlight-auto-sidebar-e2e/i18n",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.32.2",
+    "astro": "^5.4.1",
+    "starlight-auto-sidebar": "workspace:*"
+  }
+}
