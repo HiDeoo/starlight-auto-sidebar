@@ -26,7 +26,6 @@ async function getEntryData(id: string, locale: Locale): Promise<EntryData> {
   let data = entryDataMap.get(id)
   if (data) return data
 
-  // TODO(HiDeoo) silence logs
   const entry = await getEntryOrFallback(id, locale)
   data = {
     order: entry?.data.sidebar.order,
@@ -39,15 +38,29 @@ async function getEntryData(id: string, locale: Locale): Promise<EntryData> {
   return data
 }
 
-export async function getEntryOrFallback(id: string, locale: Locale) {
+async function getEntryOrFallback(id: string, locale: Locale) {
   id = stripLeadingAndTrailingSlash(id)
 
-  if (!context.isMultilingual || !locale) return getEntry('docs', stripLeadingAndTrailingSlash(id))
+  if (!context.isMultilingual || !locale) return getStarlightDocsEntry(id)
 
-  const entry = await getEntry('docs', id)
+  const entry = await getStarlightDocsEntry(id)
   if (entry) return entry
 
-  return getEntry('docs', id.replace(new RegExp(`^${locale}/`), ''))
+  return getStarlightDocsEntry(id.replace(new RegExp(`^${locale}/`), ''))
+}
+
+async function getStarlightDocsEntry(id: string) {
+  // Briefly override `console.warn()` to silence logging when an entry is not found.
+  const warn = console.warn
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  console.warn = () => {}
+
+  const entry = await getEntry('docs', id)
+
+  // Restore the original warn implementation.
+  console.warn = warn
+
+  return entry
 }
 
 export interface EntryData {
