@@ -25,7 +25,14 @@ test.describe('updates auto-generated sidebar groups', () => {
       },
       {
         label: 'sub-2',
-        items: [{ label: 'sub-2/a' }, { label: 'sub-2/b' }],
+        items: [
+          { label: 'sub-2/a' },
+          { label: 'sub-2/b' },
+          {
+            label: 'sub-1',
+            items: [{ label: 'sub-2/sub-1/a' }, { label: 'sub-2/sub-1/b' }],
+          },
+        ],
       },
       {
         label: 'sub-3 (modified)',
@@ -62,6 +69,18 @@ test.describe('updates auto-generated sidebar groups', () => {
     expect(await page.getSidebarGroupState(['collapsed-subgroups'])).toBe('expanded')
     expect(await page.getSidebarGroupState(['collapsed-subgroups', 'sub-1'])).toBe('collapsed')
     expect(await page.getSidebarGroupState(['collapsed-subgroups', 'sub-2'])).toBe('expanded')
+  })
+
+  test('updates badges', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    expect(await page.getSidebarGroupBadge(['updates'])).toBeNull()
+    expect(await page.getSidebarGroupBadge(['updates', 'sub-2'])).toMatchObject({ text: 'String', variant: 'default' })
+    expect(await page.getSidebarGroupBadge(['updates', 'sub-2', 'sub-1'])).toMatchObject({
+      text: 'Object',
+      variant: 'danger',
+    })
   })
 })
 

@@ -11,6 +11,18 @@ export const MetadataFileGlob = `${Metadatafilename}.y?(a)ml`
 export const MetadataSchema = z
   .object({
     // TODO(HiDeoo) comment
+    badge: z
+      .union([
+        z.string(),
+        z.object({
+          class: z.string().optional(),
+          text: z.string(),
+          variant: z.enum(['note', 'danger', 'success', 'caution', 'tip', 'default']).default('default'),
+        }),
+      ])
+      .transform((value) => (typeof value === 'string' ? { text: value, variant: 'default' as const } : value))
+      .optional(),
+    // TODO(HiDeoo) comment
     collapsed: z.boolean().default(false),
     // TODO(HiDeoo) comment
     label: z.string().optional(),

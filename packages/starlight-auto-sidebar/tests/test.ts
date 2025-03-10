@@ -71,21 +71,23 @@ class StarlightPage {
     return `http://localhost:${this.server.port}${url}`
   }
 
-  async getSidebarGroupState(labelSegments: [string, ...string[]]) {
-    let details: Locator | undefined
-
-    for (const label of labelSegments) {
-      const root = details ?? this.#sidebar.getByRole('listitem')
-      details = root.locator(this.#getSidebarGroupSelector(label))
-    }
-
-    if (!details) {
-      throw new Error(`Failed to find sidebar group with label segments: ${labelSegments.join(' > ')}`)
-    }
-
-    const open = await details.getAttribute('open')
+  async getSidebarGroupState(labelSegments: TestSidebarItemGroupLabelSegments) {
+    const open = await this.#getSidebarGroupDetails(labelSegments).getAttribute('open')
 
     return open === null ? 'collapsed' : 'expanded'
+  }
+
+  async getSidebarGroupBadge(labelSegments: TestSidebarItemGroupLabelSegments) {
+    const badge = this.#getSidebarGroupDetails(labelSegments).locator('> summary .sl-badge')
+    const isVisible = await badge.isVisible()
+    if (!isVisible) return null
+
+    const text = await badge.textContent()
+    const classes = await badge.evaluate((element) => [...element.classList])
+    const variant =
+      classes.find((className) => ['note', 'danger', 'success', 'caution', 'tip'].includes(className)) ?? 'default'
+
+    return { text, variant }
   }
 
   getSidebarGroupItems(label: string) {
@@ -140,7 +142,7 @@ class StarlightPage {
         const label = await item.textContent()
         items.push({ label: label?.trim() })
       } else {
-        const label = await item.locator(`> summary > div > span`).textContent()
+        const label = await item.locator(`> summary > div > span`).first().textContent()
         items.push({
           label: label?.trim(),
           items: await this.#getSidebarGroupItemFromList(item.locator('> ul')),
@@ -149,6 +151,21 @@ class StarlightPage {
     }
 
     return items
+  }
+
+  #getSidebarGroupDetails(labelSegments: [string, ...string[]]) {
+    let details: Locator | undefined
+
+    for (const label of labelSegments) {
+      const root = details ?? this.#sidebar.getByRole('listitem')
+      details = root.locator(this.#getSidebarGroupSelector(label))
+    }
+
+    if (!details) {
+      throw new Error(`At least one label segment must be provided for a sidebar group.`)
+    }
+
+    return details
   }
 
   #getSidebarGroupSelector(label: string) {
@@ -199,3 +216,5 @@ type TestPrevNextAssertions = {
     next?: TestPrevNextLink | null
   }
 }[]
+
+type TestSidebarItemGroupLabelSegments = [string, ...string[]]
