@@ -23,7 +23,7 @@ export const MetadataSchema = z
       .transform((value) => (typeof value === 'string' ? { text: value, variant: 'default' as const } : value))
       .optional(),
     // TODO(HiDeoo) comment
-    cascade: z.array(z.literal('collapsed')).optional(),
+    cascade: z.array(z.union([z.literal('collapsed'), z.literal('sort')])).optional(),
     // TODO(HiDeoo) comment
     collapsed: z.boolean().default(false),
     // TODO(HiDeoo) comment

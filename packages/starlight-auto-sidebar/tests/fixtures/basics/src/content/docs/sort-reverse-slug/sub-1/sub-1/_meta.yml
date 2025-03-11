@@ -1,1 +1,3 @@
 sort: reverse-slug
+cascade:
+  - sort

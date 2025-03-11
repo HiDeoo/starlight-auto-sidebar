@@ -170,7 +170,8 @@ test.describe('sorts auto-generated sidebar groups', () => {
               // Manual`order` of 2.
               {
                 label: 'sub-1',
-                items: [{ label: 'sub-1/sub-1/sub-1/a' }, { label: 'sub-1/sub-1/sub-1/b' }],
+                // The `reverse-slug` sort is cascaded from the parent group.
+                items: [{ label: 'sub-1/sub-1/sub-1/b' }, { label: 'sub-1/sub-1/sub-1/a' }],
               },
               // Manual`order` of 3.
               { label: 'sub-1/sub-1/b' },
@@ -351,28 +352,28 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
         url: '/sub-1/sub-1/c/',
         expected: {
           prev: { href: '/sort-reverse-slug/sub-1/b/', label: 'sub-1/b' },
-          next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
-        },
-      },
-      {
-        url: '/sub-1/sub-1/sub-1/a/',
-        expected: {
-          // Sidebar label overridden in the file frontmatter.
-          prev: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c (modified)' },
           next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
         },
       },
       {
         url: '/sub-1/sub-1/sub-1/b/',
         expected: {
-          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
+          // Sidebar label overridden in the file frontmatter.
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/c/', label: 'sub-1/sub-1/c (modified)' },
+          next: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
+        },
+      },
+      {
+        url: '/sub-1/sub-1/sub-1/a/',
+        expected: {
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
           next: { href: '/sort-reverse-slug/sub-1/sub-1/b/', label: 'sub-1/sub-1/b' },
         },
       },
       {
         url: '/sub-1/sub-1/b/',
         expected: {
-          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/b/', label: 'sub-1/sub-1/sub-1/b' },
+          prev: { href: '/sort-reverse-slug/sub-1/sub-1/sub-1/a/', label: 'sub-1/sub-1/sub-1/a' },
           next: { href: '/sort-reverse-slug/sub-1/sub-1/d/', label: 'sub-1/sub-1/d' },
         },
       },
