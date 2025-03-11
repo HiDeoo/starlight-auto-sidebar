@@ -36,7 +36,14 @@ test.describe('updates auto-generated sidebar groups', () => {
       },
       {
         label: 'sub-3 (modified)',
-        items: [{ label: 'sub-3/a' }, { label: 'sub-3/b' }],
+        items: [
+          { label: 'sub-3/a' },
+          { label: 'sub-3/b' },
+          {
+            label: 'sub-1',
+            items: [{ label: 'sub-3/sub-1/a' }, { label: 'sub-3/sub-1/b' }],
+          },
+        ],
       },
       // `sub-4` and `sub-5` are both `hidden`.
     ])
@@ -186,7 +193,7 @@ test.describe('updates prev/next links of auto-generated sidebar group pages', (
       {
         url: '/c/',
         expected: {
-          prev: { href: '/updates/sub-3/b/', label: 'sub-3/b' },
+          prev: { href: '/updates/sub-3/sub-1/b/', label: 'sub-3/sub-1/b' },
           next: { href: '/sort-slug/sub-3/a/', label: 'sub-3/a' },
         },
       },
@@ -525,5 +532,15 @@ test.describe('applies depth limit to auto-generated sidebar groups', () => {
         ],
       },
     ])
+  })
+})
+
+test.describe('cascades options to auto-generated sidebar groups when enabled', () => {
+  test('cascades the `collapsed` option', async ({ getPage }) => {
+    const page = await getPage()
+    await page.go()
+
+    expect(await page.getSidebarGroupState(['updates', 'sub-3 (modified)'])).toBe('collapsed')
+    expect(await page.getSidebarGroupState(['updates', 'sub-3 (modified)', 'sub-1'])).toBe('collapsed')
   })
 })
