@@ -1,7 +1,6 @@
 import { glob, type Loader } from 'astro/loaders'
 
 import { getRelativeSrcDir } from './libs/astro'
-import { MetadataFileGlob } from './libs/metadata'
 
 export function autoSidebarLoader(): Loader {
   return {
@@ -9,7 +8,7 @@ export function autoSidebarLoader(): Loader {
     load: (context) => {
       return glob({
         base: `${getRelativeSrcDir(context.config)}content/docs`,
-        pattern: `**/${MetadataFileGlob}`,
+        pattern: `**/_meta.y?(a)ml`,
       }).load(context)
     },
   }
