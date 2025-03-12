@@ -23,11 +23,10 @@ export default defineConfig({
           label: 'Guides',
           items: ['guides/using-metadata', 'guides/cascading-metadata', 'guides/i18n'],
         },
-        // TODO(HiDeoo)
-        // {
-        //   label: 'Resources',
-        //   items: [{ label: 'Plugins and Tools', slug: 'resources/starlight' }],
-        // },
+        {
+          label: 'Resources',
+          items: [{ label: 'Plugins and Tools', slug: 'resources/starlight' }],
+        },
         {
           label: 'Demo',
           autogenerate: { directory: 'demo' },
