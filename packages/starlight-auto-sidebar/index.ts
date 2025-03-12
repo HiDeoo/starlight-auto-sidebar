@@ -10,7 +10,6 @@ export default function starlightAutoSidebar(): StarlightPlugin {
         if (command !== 'dev' && command !== 'build') return
 
         const { sidebar } = starlightConfig
-        // TODO(HiDeoo) handle non-configured sidebar
         if (!sidebar) return
 
         addRouteMiddleware({ entrypoint: 'starlight-auto-sidebar/middleware', order: 'post' })

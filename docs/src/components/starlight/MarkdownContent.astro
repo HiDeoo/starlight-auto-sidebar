@@ -1,0 +1,20 @@
+---
+import Default from '@astrojs/starlight/components/MarkdownContent.astro'
+import { Aside } from '@astrojs/starlight/components'
+
+import { isDemoPage } from '../../libs/demo'
+---
+
+{
+  isDemoPage(Astro.locals.starlightRoute.id) ? (
+    <Aside>
+      This page exists solely for demonstration purposes and contains no useful information. See the{' '}
+      <a href="/demo/overview/">demo overview</a> for more information or check the Starlight Auto Sidebar plugin
+      <a href="/getting-started/">documentation</a> to learn more about the plugin.
+    </Aside>
+  ) : (
+    <Default>
+      <slot />
+    </Default>
+  )
+}

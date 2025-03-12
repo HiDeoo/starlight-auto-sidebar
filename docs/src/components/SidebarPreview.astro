@@ -1,0 +1,60 @@
+---
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro'
+import type { StarlightRouteData } from '@astrojs/starlight/route-data'
+
+interface Props {
+  config: SidebarConfig
+}
+
+interface SidebarLinkConfig {
+  label: string
+  link?: string
+}
+
+interface SidebarGroupConfig {
+  collapsed?: boolean
+  items: SidebarConfig
+  label: string
+}
+
+type SidebarConfig = (SidebarLinkConfig | SidebarGroupConfig)[]
+
+const { config } = Astro.props
+
+function makeEntries(items: SidebarConfig): StarlightRouteData['sidebar'] {
+  return items.map((item) => {
+    if ('items' in item) {
+      return {
+        type: 'group',
+        label: item.label,
+        entries: makeEntries(item.items),
+        collapsed: item.collapsed ?? false,
+        badge: undefined,
+      }
+    }
+
+    return {
+      type: 'link',
+      label: item.label,
+      href: item.link && item.link.length > 0 ? item.link : '#_',
+      isCurrent: false,
+      attrs: {},
+      badge: undefined,
+    }
+  })
+}
+---
+
+<div class="sidebar-preview not-content">
+  <SidebarSublist sublist={makeEntries(config)} />
+</div>
+
+<style>
+  .sidebar-preview {
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    padding: 1rem var(--sl-sidebar-pad-x);
+    /* Matches `var(--sl-sidebar-width)`, but hardcoded to avoid being overridden when printing the page. */
+    max-width: 18.75rem;
+  }
+</style>
