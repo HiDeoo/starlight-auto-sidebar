@@ -9,6 +9,7 @@ export function vitePluginStarlightAutoSidebar(starlightConfig: StarlightConfig)
       defaultLocale: starlightConfig.defaultLocale,
       isMultilingual: Object.keys(starlightConfig.locales ?? {}).length > 1,
       locales: starlightConfig.locales,
+      pagination: starlightConfig.pagination,
       sidebar: starlightConfig.sidebar ?? [],
     } satisfies StarlightAutoSidebarContext)}`,
   }
@@ -39,6 +40,7 @@ export interface StarlightAutoSidebarContext {
   defaultLocale: StarlightConfig['defaultLocale']
   isMultilingual: boolean
   locales: StarlightConfig['locales']
+  pagination: StarlightConfig['pagination']
   sidebar: SidebarItemConfig[]
 }
 

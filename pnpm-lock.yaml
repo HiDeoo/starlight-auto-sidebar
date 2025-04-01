@@ -100,6 +100,18 @@ importers:
         specifier: workspace:*
         version: link:../../..
 
+  packages/starlight-auto-sidebar/tests/fixtures/no-pagination:
+    dependencies:
+      '@astrojs/starlight':
+        specifier: ^0.32.2
+        version: 0.32.2(astro@5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0))
+      astro:
+        specifier: ^5.4.1
+        version: 5.4.1(@types/node@18.19.79)(rollup@4.34.9)(typescript@5.8.2)(yaml@2.7.0)
+      starlight-auto-sidebar:
+        specifier: workspace:*
+        version: link:../../..
+
 packages:
 
   '@astro-community/astro-embed-twitter@0.5.8':
