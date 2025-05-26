@@ -1,5 +1,11 @@
 # starlight-auto-sidebar
 
+## 0.1.2
+
+### Patch Changes
+
+- [#9](https://github.com/HiDeoo/starlight-auto-sidebar/pull/9) [`0023eea`](https://github.com/HiDeoo/starlight-auto-sidebar/commit/0023eea5e51f806d1a18122fc90ca36435981a81) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Fixes an issue where metadata files could be ignored when using non-slugified directory names.
+
 ## 0.1.1
 
 ### Patch Changes
