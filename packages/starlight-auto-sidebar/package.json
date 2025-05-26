@@ -16,6 +16,9 @@
     "test": "playwright install --with-deps chromium && playwright test",
     "lint": "eslint . --cache --max-warnings=0"
   },
+  "dependencies": {
+    "github-slugger": "^2.0.0"
+  },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/js-yaml": "^4.0.9",

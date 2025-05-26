@@ -1,5 +1,6 @@
 import type { StarlightRouteData } from '@astrojs/starlight/route-data'
 import type { HookParameters } from '@astrojs/starlight/types'
+import { slug } from 'github-slugger'
 
 import { stripBase } from './astro'
 import type { Metadata, ProjectMetadata } from './metadata'
@@ -298,7 +299,7 @@ function getSidebarLinkId(link: SidebarLink) {
 
 function getUpdateContextTrail(context: SidebarUpdateContext) {
   const segments = context.segments.slice(sidebarUpdateContextSegmentOffset)
-  return segments.map((segment) => segment.group.label).join('/')
+  return segments.map((segment) => slug(segment.group.label)).join('/')
 }
 
 export type SidebarUserConfig = NonNullable<HookParameters<'config:setup'>['config']['sidebar']>
