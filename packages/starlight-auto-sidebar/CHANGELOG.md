@@ -1,5 +1,11 @@
 # starlight-auto-sidebar
 
+## 0.1.3
+
+### Patch Changes
+
+- [#12](https://github.com/HiDeoo/starlight-auto-sidebar/pull/12) [`5bd4963`](https://github.com/HiDeoo/starlight-auto-sidebar/commit/5bd49639325a2a921cd7d7e7063abd2be4122ff5) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Setups trusted publishing using OpenID Connect (OIDC) authentication — no code changes.
+
 ## 0.1.2
 
 ### Patch Changes
