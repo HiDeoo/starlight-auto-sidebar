@@ -8,7 +8,7 @@ export default defineConfig({
       title: 'Basics',
       sidebar: [
         { slug: '', label: 'Home' },
-        { label: 'updates', autogenerate: { directory: 'updates' } },
+        { label: 'updates', autogenerate: { directory: 'updates/' } },
         { label: 'sort-slug', autogenerate: { directory: 'sort-slug' } },
         { label: 'sort-reverse-slug', autogenerate: { directory: 'sort-reverse-slug' } },
         { label: 'collapsed', autogenerate: { directory: 'collapsed' }, collapsed: true },
