@@ -54,10 +54,13 @@ export const expect = baseExpect.extend({
 })
 
 class StarlightPage {
-  constructor(
-    public readonly page: Page,
-    private readonly server: PreviewServer,
-  ) {}
+  public readonly page: Page
+  private readonly server: PreviewServer
+
+  constructor(page: Page, server: PreviewServer) {
+    this.page = page
+    this.server = server
+  }
 
   go() {
     return this.goTo('/')

@@ -20,7 +20,7 @@
     "github-slugger": "^2.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.1",
+    "@playwright/test": "^1.57.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^18.19.79"
   },
