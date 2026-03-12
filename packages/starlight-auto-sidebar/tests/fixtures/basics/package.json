@@ -9,8 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.32.2",
-    "astro": "^5.4.1",
+    "@astrojs/starlight": "^0.38.1",
+    "astro": "^6.0.3",
     "starlight-auto-sidebar": "workspace:*"
   }
 }
