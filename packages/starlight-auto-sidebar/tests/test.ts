@@ -145,7 +145,7 @@ class StarlightPage {
         const label = await item.textContent()
         items.push({ label: label?.trim() })
       } else {
-        const label = await item.locator(`> summary > div > span`).first().textContent()
+        const label = await item.locator(`> summary > span > span`).first().textContent()
         items.push({
           label: label?.trim(),
           items: await this.#getSidebarGroupItemFromList(item.locator('> ul')),
@@ -172,7 +172,7 @@ class StarlightPage {
   }
 
   #getSidebarGroupSelector(label: string) {
-    return `details:has(summary > div > span:text-is("${label}"))`
+    return `details:has(summary > span > span:text-is("${label}"))`
   }
 }
 

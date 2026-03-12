@@ -20,17 +20,17 @@
     "github-slugger": "^2.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.58.2",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^18.19.79"
+    "@types/node": "^22.19.15"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.32.0"
+    "@astrojs/starlight": ">=0.38.0"
   },
   "engines": {
-    "node": ">=18.17.1"
+    "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.32.1",
   "publishConfig": {
     "access": "public"
   },
