@@ -1,5 +1,15 @@
 # starlight-auto-sidebar
 
+## 0.2.0
+
+### Minor Changes
+
+- [#19](https://github.com/HiDeoo/starlight-auto-sidebar/pull/19) [`71c6744`](https://github.com/HiDeoo/starlight-auto-sidebar/commit/71c67448e3c3492877287fb2357e411f7e22bfe2) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Adds support for Astro v6, drops support for Astro v5.
+
+  ⚠️ **BREAKING CHANGE:** The minimum supported version of Starlight is now `0.38.0`.
+
+  Please follow the [upgrade guide](https://github.com/withastro/starlight/releases/tag/%40astrojs%2Fstarlight%400.38.0) to update your project.
+
 ## 0.1.4
 
 ### Patch Changes
