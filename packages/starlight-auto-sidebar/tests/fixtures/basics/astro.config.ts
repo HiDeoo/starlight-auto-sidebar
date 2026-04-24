@@ -20,6 +20,8 @@ export default defineConfig({
         { label: 'depth-root-1', autogenerate: { directory: 'depth-root-1' } },
         { label: 'depth-root-3', autogenerate: { directory: 'depth-root-3' } },
         { label: 'mixed-depth', autogenerate: { directory: 'mixed-depth' } },
+        { label: 'sort-label', autogenerate: { directory: 'sort-label' } },
+        { label: 'sort-reverse-label', autogenerate: { directory: 'sort-reverse-label' } },
       ],
       pagefind: false,
       plugins: [starlightAutoSidebar()],

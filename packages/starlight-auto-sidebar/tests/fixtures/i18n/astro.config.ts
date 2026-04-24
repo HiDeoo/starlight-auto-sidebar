@@ -14,6 +14,8 @@ export default defineConfig({
       sidebar: [
         { label: 'updates', autogenerate: { directory: 'updates' } },
         { label: 'mixed-sort', autogenerate: { directory: 'mixed-sort' } },
+        { label: 'sort-label', autogenerate: { directory: 'sort-label' } },
+        { label: 'sort-reverse-label', autogenerate: { directory: 'sort-reverse-label' } },
       ],
       pagefind: false,
       plugins: [starlightAutoSidebar()],
