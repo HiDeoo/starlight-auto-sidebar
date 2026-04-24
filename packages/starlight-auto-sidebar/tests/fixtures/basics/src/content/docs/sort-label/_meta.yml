@@ -1,0 +1,3 @@
+sort: label
+cascade:
+  - sort

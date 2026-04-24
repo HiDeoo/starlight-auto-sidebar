@@ -55,7 +55,7 @@ export const MetadataSchema = z.strictObject({
    *
    * @default 'slug'
    */
-  sort: z.enum(['slug', 'reverse-slug']).default('slug'),
+  sort: z.enum(['slug', 'reverse-slug', 'label', 'reverse-label']).optional(),
 })
 
 export function autoSidebarSchema() {
