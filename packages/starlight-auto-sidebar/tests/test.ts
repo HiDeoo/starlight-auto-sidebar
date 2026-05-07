@@ -93,6 +93,10 @@ class StarlightPage {
     return { text, variant }
   }
 
+  getSidebarItems() {
+    return this.#getSidebarGroupItemFromList(this.#sidebar.getByRole('list').first())
+  }
+
   getSidebarGroupItems(label: string) {
     return this.#getSidebarGroupItemFromList(this.#getSidebarGroupList(label))
   }

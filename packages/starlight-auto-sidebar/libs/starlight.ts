@@ -55,7 +55,7 @@ async function getStarlightDocsEntry(id: string) {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   console.warn = () => {}
 
-  const entry = await getEntry('docs', id)
+  const entry = await getEntry('docs', id === '' ? 'index' : id)
 
   // Restore the original warn implementation.
   console.warn = warn
