@@ -91,6 +91,18 @@ importers:
         specifier: workspace:*
         version: link:../../..
 
+  packages/starlight-auto-sidebar/tests/fixtures/custom-page:
+    dependencies:
+      '@astrojs/starlight':
+        specifier: ^0.39.0
+        version: 0.39.0(astro@6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2))(typescript@5.9.3)
+      astro:
+        specifier: ^6.0.3
+        version: 6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2)
+      starlight-auto-sidebar:
+        specifier: workspace:*
+        version: link:../../..
+
   packages/starlight-auto-sidebar/tests/fixtures/i18n:
     dependencies:
       '@astrojs/starlight':
@@ -103,6 +115,18 @@ importers:
         specifier: workspace:*
         version: link:../../..
 
+  packages/starlight-auto-sidebar/tests/fixtures/mixed:
+    dependencies:
+      '@astrojs/starlight':
+        specifier: ^0.39.0
+        version: 0.39.0(astro@6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2))(typescript@5.9.3)
+      astro:
+        specifier: ^6.0.3
+        version: 6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2)
+      starlight-auto-sidebar:
+        specifier: workspace:*
+        version: link:../../..
+
   packages/starlight-auto-sidebar/tests/fixtures/no-pagination:
     dependencies:
       '@astrojs/starlight':
@@ -110,6 +134,18 @@ importers:
         version: 0.39.0(astro@6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2))(typescript@5.9.3)
       astro:
         specifier: ^6.3.0
+        version: 6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2)
+      starlight-auto-sidebar:
+        specifier: workspace:*
+        version: link:../../..
+
+  packages/starlight-auto-sidebar/tests/fixtures/no-sidebar:
+    dependencies:
+      '@astrojs/starlight':
+        specifier: ^0.39.0
+        version: 0.39.0(astro@6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2))(typescript@5.9.3)
+      astro:
+        specifier: ^6.0.3
         version: 6.3.0(@types/node@24.12.0)(rollup@4.59.0)(yaml@2.8.2)
       starlight-auto-sidebar:
         specifier: workspace:*
@@ -5440,7 +5476,7 @@ snapshots:
       unstorage: 1.17.5
       vfile: 6.0.3
       vite: 7.3.3(@types/node@22.19.15)(yaml@2.8.2)
-      vitefu: 1.1.2(vite@7.3.3(@types/node@24.12.0)(yaml@2.8.2))
+      vitefu: 1.1.2(vite@7.3.3(@types/node@22.19.15)(yaml@2.8.2))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.3.6
@@ -8584,6 +8620,10 @@ snapshots:
       '@types/node': 24.12.0
       fsevents: 2.3.3
       yaml: 2.8.2
+
+  vitefu@1.1.2(vite@7.3.3(@types/node@22.19.15)(yaml@2.8.2)):
+    optionalDependencies:
+      vite: 7.3.3(@types/node@22.19.15)(yaml@2.8.2)
 
   vitefu@1.1.2(vite@7.3.3(@types/node@24.12.0)(yaml@2.8.2)):
     optionalDependencies:
