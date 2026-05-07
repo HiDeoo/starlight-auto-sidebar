@@ -43,7 +43,7 @@ export default defineConfig({
         },
         {
           label: 'Demo',
-          autogenerate: { directory: 'demo' },
+          items: [{ autogenerate: { directory: 'demo' } }],
         },
       ],
       social: [

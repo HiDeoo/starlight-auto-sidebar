@@ -1,8 +1,6 @@
 import type { HookParameters } from '@astrojs/starlight/types'
 import type { ViteUserConfig } from 'astro'
 
-import type { SidebarItemConfig } from './sidebar'
-
 export function vitePluginStarlightAutoSidebar(starlightConfig: StarlightConfig): VitePlugin {
   const modules = {
     'virtual:starlight-auto-sidebar/context': `export default ${JSON.stringify({
@@ -10,7 +8,6 @@ export function vitePluginStarlightAutoSidebar(starlightConfig: StarlightConfig)
       isMultilingual: Object.keys(starlightConfig.locales ?? {}).length > 1,
       locales: starlightConfig.locales,
       pagination: starlightConfig.pagination,
-      sidebar: starlightConfig.sidebar ?? [],
     } satisfies StarlightAutoSidebarContext)}`,
   }
 
@@ -41,7 +38,6 @@ export interface StarlightAutoSidebarContext {
   isMultilingual: boolean
   locales: StarlightConfig['locales']
   pagination: StarlightConfig['pagination']
-  sidebar: SidebarItemConfig[]
 }
 
 type VitePlugin = NonNullable<ViteUserConfig['plugins']>[number]

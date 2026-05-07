@@ -9,9 +9,6 @@ export default function starlightAutoSidebar(): StarlightPlugin {
       'config:setup': ({ addIntegration, addRouteMiddleware, command, config: starlightConfig }) => {
         if (command !== 'dev' && command !== 'build') return
 
-        const { sidebar } = starlightConfig
-        if (!sidebar) return
-
         addRouteMiddleware({ entrypoint: 'starlight-auto-sidebar/middleware', order: 'post' })
 
         addIntegration({

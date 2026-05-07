@@ -9,7 +9,7 @@ export default defineConfig({
       pagination: false,
       sidebar: [
         { slug: '', label: 'Home' },
-        { label: 'updates', autogenerate: { directory: 'updates' } },
+        { label: 'updates', items: [{ autogenerate: { directory: 'updates' } }] },
       ],
       pagefind: false,
       plugins: [starlightAutoSidebar()],
