@@ -19,10 +19,7 @@ export default defineConfig({
         },
         {
           label: 'Adjacent',
-          items: [
-            { autogenerate: { directory: 'adjacent-a' } },
-            { autogenerate: { directory: 'adjacent-b' } },
-          ],
+          items: [{ autogenerate: { directory: 'adjacent-a' } }, { autogenerate: { directory: 'adjacent-b' } }],
         },
         { slug: 'last', label: 'Last' },
       ],
