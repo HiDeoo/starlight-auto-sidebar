@@ -6,7 +6,6 @@
   "author": "HiDeoo <github@hideoo.dev> (https://hideoo.dev)",
   "type": "module",
   "scripts": {
-    "test": "pnpm --stream -r test",
     "lint": "astro check --noSync && pnpm -r lint",
     "format": "prettier -w --cache --ignore-unknown .",
     "version": "pnpm changeset version && pnpm i --no-frozen-lockfile"
@@ -18,7 +17,7 @@
     "@hideoo/eslint-config": "^4.1.1",
     "@hideoo/prettier-config": "^2.0.1",
     "@hideoo/tsconfig": "^2.0.3",
-    "astro": "^6.3.0",
+    "astro": "^6.3.1",
     "eslint": "^9.39.4",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
