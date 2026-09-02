@@ -1,5 +1,11 @@
 # starlight-auto-sidebar
 
+## 0.4.1
+
+### Patch Changes
+
+- [#31](https://github.com/HiDeoo/starlight-auto-sidebar/pull/31) [`0f5b59d`](https://github.com/HiDeoo/starlight-auto-sidebar/commit/0f5b59d2e264e4be75fda79f7bd75a0bff84c8b6) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Fixes custom sidebar and pagination links being overwritten when generating sidebars.
+
 ## 0.4.0
 
 ### Minor Changes
