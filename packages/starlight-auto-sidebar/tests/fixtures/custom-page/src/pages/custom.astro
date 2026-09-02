@@ -3,9 +3,10 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro'
 ---
 
 <StarlightPage
-  frontmatter={{ title: 'Custom page' }}
+  frontmatter={{ title: 'Custom page', prev: false, next: false }}
   sidebar={[
     { slug: 'manual-a', label: 'manual-a' },
+    { label: 'custom', link: '/custom/' },
     { autogenerate: { directory: 'custom-auto' } },
     { slug: 'manual-b', label: 'manual-b' },
   ]}

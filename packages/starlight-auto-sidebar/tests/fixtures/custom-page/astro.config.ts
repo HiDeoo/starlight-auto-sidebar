@@ -6,9 +6,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Custom Page',
-      sidebar: [{ slug: 'manual-a', label: 'manual-a' }],
+      sidebar: [{ slug: 'manual-a', label: 'manual-a' }, { autogenerate: { directory: 'custom-auto' } }],
       pagefind: false,
       plugins: [starlightAutoSidebar()],
+      routeMiddleware: './src/routeData.ts',
     }),
   ],
 })

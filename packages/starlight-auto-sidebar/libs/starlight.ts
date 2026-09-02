@@ -13,11 +13,6 @@ export async function getEntryOrder(id: string, locale: Locale) {
   return data.order ?? Number.MAX_VALUE
 }
 
-export async function getEntryPrevNextLinks(id: string, locale: Locale): Promise<Pick<EntryData, 'next' | 'prev'>> {
-  const { prev, next } = await getEntryData(id, locale)
-  return { prev, next }
-}
-
 export function getDefaultLang(): string {
   return context.locales?.root?.lang ?? context.defaultLocale ?? 'en'
 }
@@ -29,8 +24,6 @@ async function getEntryData(id: string, locale: Locale): Promise<EntryData> {
   const entry = await getEntryOrFallback(id, locale)
   data = {
     order: entry?.data.sidebar.order,
-    next: entry?.data.next,
-    prev: entry?.data.prev,
   }
 
   entryDataMap.set(id, data)
@@ -63,10 +56,8 @@ async function getStarlightDocsEntry(id: string) {
   return entry
 }
 
-export interface EntryData {
+interface EntryData {
   order: CollectionEntry<'docs'>['data']['sidebar']['order']
-  next: CollectionEntry<'docs'>['data']['next']
-  prev: CollectionEntry<'docs'>['data']['prev']
 }
 
 export type Locale = string | undefined
