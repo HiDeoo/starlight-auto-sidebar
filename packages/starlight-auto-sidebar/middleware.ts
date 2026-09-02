@@ -12,6 +12,7 @@ export const onRequest = defineRouteMiddleware(async ({ locals }) => {
     starlightRoute.sidebar,
     metadata,
     starlightRoute.locale,
+    starlightRoute.entry.data,
     context,
   )
 
