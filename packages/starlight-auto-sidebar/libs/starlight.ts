@@ -34,7 +34,7 @@ async function getEntryData(id: string, locale: Locale): Promise<EntryData> {
 async function getEntryOrFallback(id: string, locale: Locale) {
   id = stripLeadingAndTrailingSlash(id)
 
-  if (!context.isMultilingual || !locale) return getStarlightDocsEntry(id)
+  if (!locale || !context.isMultilingual) return getStarlightDocsEntry(id)
 
   const entry = await getStarlightDocsEntry(id)
   if (entry) return entry

@@ -1,6 +1,12 @@
 import { fileURLToPath } from 'node:url'
 
-import { expect as baseExpect, test as baseTest, type Locator, type Page } from '@playwright/test'
+import {
+  expect as baseExpect,
+  test as baseTest,
+  type ExpectMatcherState,
+  type Locator,
+  type Page,
+} from '@playwright/test'
 import { build, preview } from 'astro'
 
 process.env['ASTRO_DISABLE_UPDATE_CHECK'] = 'true'
@@ -31,7 +37,7 @@ export function testFactory(fixture: string) {
 }
 
 export const expect = baseExpect.extend({
-  toMatchSidebar(items: TestSidebarItem[], expected: TestSidebarItem[]) {
+  toMatchSidebar(this: ExpectMatcherState, items: TestSidebarItem[], expected: TestSidebarItem[]) {
     let pass = false
     const assertionName = 'toMatchSidebar'
     let matcherResult: MatcherResult | undefined
